@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+	<head>
+		<script>
+			
+
+			function Person (personName, personHeight, personWeight, personGender, personHairColour) {
+
+				this.name = personName  || undefined;
+				this.height = personHeight || undefined;
+				this.weight = personWeight || undefined;
+				this.gender = personGender || undefined;
+				this.hairColour = personHairColour || undefined;
+
+				// this.render = function() {
+				// 		var markup = '';
+				// 		markup += '<div class="person">';
+				// 		markup += '<img src="' + this.photo + '">';
+				// 		if (this.name) {
+				// 			markup += '<h1>' + this.name + '</h1>';
+				// 		}
+				// 		markup += '<dl>';
+				// 		if (this.height) {
+				// 			markup += '<dt>Height: </dt>';
+				// 			markup += '<dd>' + this.height + 'cm</dd>';
+				// 		}
+				// 		if (this.weight) {
+				// 			markup += '<dt>Weight: </dt>';
+				// 			markup += '<dd>' + this.weight + 'kg</dd>';
+				// 		}
+				// 		if (this.hairColour) {
+				// 			markup += '<dt>Hair Colour: </dt>';
+				// 			markup += '<dd>' + this.hairColour + '</dd>';
+				// 		}
+				// 		markup += '<dl>';
+				// 		markup += '</div>';
+				// 		document.body.innerHTML += markup;
+					
+				// };
+			}
+
+			Person.prototype = {
+				render: function() {
+						var markup = '';
+						markup += '<div class="person">';
+						if (this.name) {
+							markup += '<h1>' + this.name + '</h1>';
+						}
+						markup += '<dl>';
+						if (this.height) {
+							markup += '<dt>Height: </dt>';
+							markup += '<dd>' + this.height + 'cm</dd>';
+						}
+						if (this.weight) {
+							markup += '<dt>Weight: </dt>';
+							markup += '<dd>' + this.weight + 'kg</dd>';
+						}
+						if (this.hairColour) {
+							markup += '<dt>Hair Colour: </dt>';
+							markup += '<dd>' + this.hairColour + '</dd>';
+						}
+						markup += '<dl>';
+						markup += '</div>';
+						document.body.innerHTML += markup;
+					
+				}
+			};
+
+			window.addEventListener('load', function() {
+				calvin = new Person();
+				calvin.height = 190;
+				calvin.weight = 105;
+				calvin.hairColour = 'blonde';
+				calvin.name = 'Calvin Tennant';
+				calvin.render();
+			});
+
+			
+
+
+		</script>
+		<style>
+			html, body {
+				font-family: sans-serif;
+				margin: 0;
+			}
+			.person {
+				background: #E7E7E7;
+				border-radius: 20px;
+				box-shadow: rgba(0, 0, 0, .4);
+				box-sizing: border-box;
+				height: 200px;
+				margin: 20px;
+				overflow: hidden;
+				padding: 20px;
+				width: 400px;
+			}
+			.person img {
+				height: 160px;
+				float: left;
+				margin-right: 20px;
+				width: 160px;
+			}
+			.person h1 {
+				font-size: 20px;
+			}
+			.person dd, .person dt {
+				display: inline;
+				margin: 0;
+			}
+			.person dd::after {
+				content: '\00A0';
+				display: block;
+				font-size: 0;
+			}
+		</style>
+	</head>
+	<body>
+	</body>
+</html>
+
